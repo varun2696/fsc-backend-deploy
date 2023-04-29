@@ -42,5 +42,5 @@ app.listen(PORT, async () => {
         console.log("Not able to connect");
     }
 
-    console.log("server is running at port 8000");
+    console.log(`server is runnig at port ${PORT}`);
 })
