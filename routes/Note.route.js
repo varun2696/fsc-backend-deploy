@@ -29,6 +29,20 @@ noteRouter.get('/', async (req, res) => {
 })
 
 
+
+noteRouter.get('/:id', async (req, res) => {
+    const {id} = req.params;
+    try {
+        const note = await NoteModel.findOne({ _id: id });
+        res.status(200).send(note)
+    }
+    catch (error) {
+        res.status(400).send({ err: error.message })
+    }
+})
+
+
+
 noteRouter.patch('/update/:noteId', async (req, res) => {
     const { noteId } = req.params;
     const note = await NoteModel.findOne({ _id: noteId })
